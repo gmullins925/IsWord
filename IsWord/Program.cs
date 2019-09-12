@@ -14,6 +14,7 @@ namespace IsWord
 
 			string querry;
 
+
 			Console.WriteLine("Input querry to verify if it is a 'Word'?");
 			querry = Console.ReadLine();
 
@@ -23,8 +24,38 @@ namespace IsWord
 				{
 					Console.WriteLine("Querry contains number(s). Querry IS NOT a word.");
 					Console.ReadLine();
+					break;
 				}
+			}
 
+
+
+			char[] sngle = querry.ToCharArray();
+			char first = sngle[0];
+			//char second = sngle[1];
+			for (int q = 0; q < querry.Length; q++)
+			{
+				if (querry.Length == 1)
+				{
+				switch (first)
+					{
+						case 'a':
+							Console.WriteLine("Querry IS a word.");
+							break;
+						case 'i':
+							Console.WriteLine("Querry IS a word.");
+							break;
+						case 'I':
+							Console.WriteLine("Querry IS a word.");
+							break;
+						case 'A':
+							Console.WriteLine("Querry IS a word.");
+							break;
+						default:
+							Console.WriteLine("Most words container multiple letters. Your querry IS NOT a word.");
+							break;
+					}
+				}
 			}
 
 			string aQuerry = querry.Substring(1);
@@ -38,44 +69,24 @@ namespace IsWord
 				}
 			}
 
-			for (querry.Length = {1})
-			{
-				if (querry != "a" || querry != "A" || querry != "i" || querry != "I")
-				{
-					Console.WriteLine("Most words container multiple letters. Your querry IS NOT a word.");
-					Console.ReadLine();
-				}
-			}
 
 
 
-		
 
 
-					/*					switch (querry)
-									{
-										case "a":
-											Console.WriteLine("Querry IS a word.");
-											Console.ReadLine();
-										case "i":
-											Console.WriteLine("Querry IS a word.");
-											Console.ReadLine();
-										case "I":
-											Console.WriteLine("Querry IS a word.");
-											Console.ReadLine();
-										case "A":
-											Console.WriteLine("Querry IS a word.");
-											Console.ReadLine();
-									}*/
 
 
-					/*						Console.WriteLine("Input querry to verify if it is a 'Word'?");
-											string querryBeta = Console.ReadLine();
-											querry = querryBeta;
 
-											char[] array = querry.ToArray(); */
+			
 
-					Console.ReadLine();
+
+			/*						Console.WriteLine("Input querry to verify if it is a 'Word'?");
+									string querryBeta = Console.ReadLine();
+									querry = querryBeta;
+
+									char[] array = querry.ToArray(); */
+
+			Console.ReadLine();
 
 
 
