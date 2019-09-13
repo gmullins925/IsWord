@@ -18,6 +18,7 @@ namespace IsWord
 			Console.WriteLine("Input querry to verify if it is a 'Word'?");
 			querry = Console.ReadLine();
 
+
 			foreach (char c in querry)
 			{
 				if (!Char.IsLetter(c))
@@ -30,6 +31,19 @@ namespace IsWord
 
 
 
+			string aQuerry = querry.Substring(1);
+
+			for (int i = 0; i < aQuerry.Length; i++)
+			{
+				if (char.IsUpper(aQuerry[i]))
+				{
+					Console.WriteLine("Only first letter of querry can be capitlized. Querry IS NOT a word.");
+					Console.ReadLine();
+					break;
+				}
+			}
+
+
 			char[] sngle = querry.ToCharArray();
 			char first = sngle[0];
 			//char second = sngle[1];
@@ -37,7 +51,7 @@ namespace IsWord
 			{
 				if (querry.Length == 1)
 				{
-				switch (first)
+					switch (first)
 					{
 						case 'a':
 							Console.WriteLine("Querry IS a word.");
@@ -57,41 +71,31 @@ namespace IsWord
 					}
 				}
 			}
-
-			string aQuerry = querry.Substring(1);
-
-			for (int i = 0; i < aQuerry.Length; i++)
+			while (querry.Length >= 2)
 			{
-				if (char.IsUpper(aQuerry[i]))
+				NetSpell.SpellChecker.Dictionary.WordDictionary oDict = new NetSpell.SpellChecker.Dictionary.WordDictionary
 				{
-					Console.WriteLine("Only first letter of querry can be capitlized. Querry IS NOT a word.");
-					Console.ReadLine();
+					DictionaryFile = "en-US.dic"
+				};
+				//oDict.Initialize();
+
+				NetSpell.SpellChecker.Spelling oSpell = new NetSpell.SpellChecker.Spelling
+				{
+					Dictionary = oDict
+				};
+				if (!oSpell.TestWord(querry))
+				{
+					Console.WriteLine("Your querry IS not a word");
 				}
+
+				else
+				{
+					Console.WriteLine(querry + " IS a word!");
+				}
+				Console.ReadLine();
 			}
-
-
-
-
-
-
-
-
-
-			
-
-
-			/*						Console.WriteLine("Input querry to verify if it is a 'Word'?");
-									string querryBeta = Console.ReadLine();
-									querry = querryBeta;
-
-									char[] array = querry.ToArray(); */
-
-			Console.ReadLine();
-
-
-
-
 		}
 	}
 }
+
 
